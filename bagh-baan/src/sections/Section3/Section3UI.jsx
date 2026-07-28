@@ -1,31 +1,43 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const MenuItem = ({ name, description, delay }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 15 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-10%" }}
+    transition={{ duration: 0.5, delay }}
+    className="border-b border-marigold/10 pb-6"
+  >
+    <div className="flex justify-between items-baseline mb-2">
+      <h4 className="font-cormorant text-2xl text-ivory">{name}</h4>
+      <div className="flex-grow border-b border-dotted border-ivory/20 mx-4 relative top-[-6px]"></div>
+    </div>
+    <p className="font-inter text-sm text-ivory/60">{description}</p>
+  </motion.div>
+);
+
 const Section3UI = () => {
   return (
-    <section className="h-[150vh] w-full flex flex-col justify-start items-center relative z-10 pointer-events-none pt-[30vh]">
+    <section id="menu" className="py-32 w-full relative bg-forest-green px-6 md:px-20">
 
-      <div className="text-center mb-10 pointer-events-auto">
-        <h3 className="font-cormorant text-4xl md:text-5xl text-marigold mb-4">The Rajasthani Thali</h3>
-        <p className="font-inter text-ivory/80 max-w-lg mx-auto mb-6">
-          A symphony of flavors, curated from generations of family recipes. 100% Pure Veg.
-        </p>
-      </div>
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-20">
+          <span className="text-marigold font-inter tracking-[0.2em] uppercase text-sm mb-4 block">Signature Experience</span>
+          <h3 className="font-cormorant text-5xl md:text-6xl text-ivory mb-6">The Rajasthani Thali</h3>
+          <p className="font-inter text-ivory/70 max-w-lg mx-auto text-lg">
+            A symphony of flavors, curated from generations of family recipes. 100% Pure Veg and authentically prepared.
+          </p>
+        </div>
 
-      <div className="relative w-full max-w-3xl h-[60vh] hidden md:block">
-        <motion.div
-          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ margin: "-40%" }}
-          className="absolute top-[20%] right-[10%] bg-wood-brown/80 backdrop-blur px-4 py-2 rounded border border-marigold/50 font-cormorant text-xl shadow-lg"
-        >
-          Panchmel Dal
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ margin: "-50%" }}
-          className="absolute bottom-[20%] left-[10%] bg-wood-brown/80 backdrop-blur px-4 py-2 rounded border border-marigold/50 font-cormorant text-xl shadow-lg"
-        >
-          Gatte ki Sabzi
-        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-10">
+          <MenuItem name="Panchmel Dal" description="A rich blend of five lentils slow-cooked with aromatic spices." delay={0.1} />
+          <MenuItem name="Gatte ki Sabzi" description="Gram flour dumplings simmered in a tangy yogurt and spice curry." delay={0.2} />
+          <MenuItem name="Ker Sangri" description="Traditional desert beans and berries stir-fried with Rajasthani masalas." delay={0.3} />
+          <MenuItem name="Bati & Churma" description="Baked wheat spheres served with sweet crushed wheat and pure ghee." delay={0.4} />
+          <MenuItem name="Jeera Rice" description="Basmati rice tempered with cumin and whole spices." delay={0.5} />
+          <MenuItem name="Lehsuni Chutney" description="Fiery garlic chutney to elevate the thali experience." delay={0.6} />
+        </div>
       </div>
 
     </section>

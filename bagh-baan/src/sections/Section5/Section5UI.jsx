@@ -42,28 +42,28 @@ const Section5UI = () => {
   ];
 
   return (
-    <section ref={wrapRef} className="h-screen w-full relative z-10 pointer-events-none overflow-hidden pt-20">
+    <section ref={wrapRef} className="h-screen w-full relative overflow-hidden bg-forest-green border-t border-marigold/10 pt-20">
 
-      <div className="absolute top-10 w-full text-center pointer-events-auto z-20">
+      <div className="absolute top-12 left-0 w-full text-center z-20">
         <h3 className="font-cormorant text-4xl md:text-5xl text-marigold mb-2">The Courtyard</h3>
-        <p className="font-inter text-ivory/80">Spacious seating under the stars.</p>
+        <p className="font-inter text-ivory/70 tracking-widest uppercase text-sm">Ambiance & Atmosphere</p>
       </div>
 
       <div className="h-full w-full flex items-center">
         <div
           ref={scrollContainerRef}
-          className="flex gap-8 px-10 md:px-[20vw] pointer-events-auto h-[60vh]"
+          className="flex gap-12 px-10 md:px-[15vw] h-[60vh] items-center"
         >
           {photos.map((src, i) => (
             <div
               key={i}
-              className="relative h-full w-[80vw] md:w-[45vw] shrink-0 rounded-xl overflow-hidden border border-marigold/30 shadow-2xl group"
+              className="relative h-full w-[85vw] md:w-[45vw] shrink-0 overflow-hidden border border-marigold/20 group shadow-2xl bg-[#111]"
             >
-              <div className="absolute inset-0 bg-dusk-plum/20 group-hover:bg-transparent transition-all duration-500 z-10"></div>
+              <div className="absolute inset-0 bg-dusk-plum/30 group-hover:bg-transparent transition-all duration-700 z-10"></div>
               <img
                 src={`/gallery/${src}`}
                 alt="Restaurant Courtyard"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                 loading="lazy"
               />
             </div>

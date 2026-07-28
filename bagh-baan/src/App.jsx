@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Scene from './components/Scene';
 import Section1UI from './sections/Section1/Section1UI';
 import Section2UI from './sections/Section2/Section2UI';
 import Section3UI from './sections/Section3/Section3UI';
@@ -41,20 +40,19 @@ function App() {
   }, []);
 
   return (
-    <div id="scroll-container" className="relative w-full text-ivory font-inter">
-      <Scene />
-
-      <div className="absolute top-0 left-0 w-full z-10">
-        <Section1UI />
-        <Section2UI />
-        <Section3UI />
-        <Section4UI />
-        <Section5UI />
-        <Section6UI />
-        <Section7UI />
-
-        <div className="h-[750vh] w-full pointer-events-none"></div>
-      </div>
+    <div id="scroll-container" className="w-full text-ivory font-inter bg-dusk-plum min-h-screen">
+      {/*
+        In 2D mode, we render standard stacked sections.
+        We can use background images/gradients to simulate the orchard path depth,
+        rather than a literal 3D fly-through.
+      */}
+      <Section1UI />
+      <Section2UI />
+      <Section3UI />
+      <Section4UI />
+      <Section5UI />
+      <Section6UI />
+      <Section7UI />
     </div>
   );
 }

@@ -21,14 +21,21 @@ const Section6UI = () => {
   ];
 
   return (
-    <section className="min-h-screen w-full relative z-10 flex flex-col justify-center items-center pointer-events-none py-20">
+    <section className="min-h-screen w-full relative flex flex-col justify-center items-center py-20 bg-[#2A1F3D] border-t border-marigold/10">
 
-      <div className="text-center mb-16 pointer-events-auto mt-20">
-        <h3 className="font-cormorant text-4xl md:text-5xl text-marigold mb-2">Guest Experiences</h3>
-        <p className="font-inter text-ivory/80 max-w-lg mx-auto">See what our visitors have to say about their journey through our orchard.</p>
+      <div className="text-center mb-16">
+        <span className="text-marigold font-inter tracking-[0.2em] uppercase text-sm mb-4 block">Testimonials</span>
+        <h3 className="font-cormorant text-5xl md:text-6xl text-ivory mb-4">Guest Experiences</h3>
+        <p className="font-inter text-ivory/70 max-w-lg mx-auto">See what our visitors have to say about their journey through our orchard.</p>
+
+        {/* Replacing the 3D medallion with a high-end 2D badge */}
+        <div className="inline-flex flex-col items-center justify-center w-32 h-32 rounded-full border border-marigold/30 mt-8 bg-wood-brown/20 shadow-lg">
+          <span className="font-tempting text-4xl text-marigold">4.6★</span>
+          <span className="text-[10px] text-ivory/60 uppercase tracking-widest mt-1">TripAdvisor</span>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-8 max-w-6xl w-full pointer-events-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-8 max-w-6xl w-full">
         {reviews.map((review, i) => (
           <motion.div
             key={i}
@@ -36,31 +43,16 @@ const Section6UI = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, delay: i * 0.2 }}
-            whileHover={{
-              scale: 1.05,
-              rotateX: 5,
-              rotateY: -5,
-              boxShadow: "0 25px 50px -12px rgba(232, 169, 59, 0.15)"
-            }}
-            className="bg-[#2A1F3D]/80 backdrop-blur-md border-2 border-[#B5502E]/40 rounded-lg p-8 relative overflow-hidden"
-            style={{ transformPerspective: 1000 }}
+            whileHover={{ y: -5 }}
+            className="bg-[#1F3B2C]/40 border border-ivory/10 p-10 rounded-sm hover:border-marigold/30 transition-all duration-300 shadow-xl"
           >
-            <div className="absolute inset-0 opacity-10 pointer-events-none"
-                 style={{
-                   backgroundImage: `radial-gradient(#E8A93B 2px, transparent 2px)`,
-                   backgroundSize: '20px 20px'
-                 }}>
-            </div>
-
-            <div className="relative z-10">
-              <div className="text-marigold text-3xl mb-4">"</div>
-              <p className="font-inter text-ivory mb-6 leading-relaxed">
-                {review.text}
-              </p>
-              <div className="flex justify-between items-center border-t border-marigold/20 pt-4">
-                <span className="font-bold text-marigold">{review.author}</span>
-                <span className="text-xs text-ivory/60 uppercase tracking-wider">{review.source}</span>
-              </div>
+            <div className="text-marigold text-4xl mb-4 font-cormorant leading-none">"</div>
+            <p className="font-inter text-ivory/90 mb-8 leading-relaxed italic text-lg">
+              {review.text}
+            </p>
+            <div className="flex justify-between items-center border-t border-marigold/20 pt-4">
+              <span className="font-semibold text-marigold tracking-wide">{review.author}</span>
+              <span className="text-xs text-ivory/50 uppercase tracking-wider">{review.source}</span>
             </div>
           </motion.div>
         ))}
