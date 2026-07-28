@@ -19,9 +19,11 @@ const MenuItem = ({ name, description, delay }) => (
 
 const Section3UI = () => {
   return (
-    <section id="menu" className="py-32 w-full relative bg-forest-green px-6 md:px-20">
+    <section id="menu" className="py-32 w-full relative bg-deep-plum px-6 md:px-20">
 
-      <div className="max-w-5xl mx-auto">
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal opacity-90 pointer-events-none"></div>
+
+      <div className="max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-20">
           <span className="text-marigold font-inter tracking-[0.2em] uppercase text-sm mb-4 block">Signature Experience</span>
           <h3 className="font-cormorant text-5xl md:text-6xl text-ivory mb-6">The Rajasthani Thali</h3>

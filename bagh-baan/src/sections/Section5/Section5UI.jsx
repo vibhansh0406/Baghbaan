@@ -42,7 +42,9 @@ const Section5UI = () => {
   ];
 
   return (
-    <section ref={wrapRef} className="h-screen w-full relative overflow-hidden bg-forest-green border-t border-marigold/10 pt-20">
+    <section ref={wrapRef} className="h-screen w-full relative overflow-hidden bg-deep-plum border-t border-marigold/5 pt-20">
+
+      <div className="absolute inset-0 bg-gradient-to-b from-charcoal to-transparent opacity-80 pointer-events-none"></div>
 
       <div className="absolute top-12 left-0 w-full text-center z-20">
         <h3 className="font-cormorant text-4xl md:text-5xl text-marigold mb-2">The Courtyard</h3>

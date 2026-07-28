@@ -21,9 +21,9 @@ const Section6UI = () => {
   ];
 
   return (
-    <section className="min-h-screen w-full relative flex flex-col justify-center items-center py-20 bg-[#2A1F3D] border-t border-marigold/10">
+    <section className="min-h-screen w-full relative flex flex-col justify-center items-center py-20 bg-charcoal border-t border-marigold/5">
 
-      <div className="text-center mb-16">
+      <div className="text-center mb-16 relative z-10">
         <span className="text-marigold font-inter tracking-[0.2em] uppercase text-sm mb-4 block">Testimonials</span>
         <h3 className="font-cormorant text-5xl md:text-6xl text-ivory mb-4">Guest Experiences</h3>
         <p className="font-inter text-ivory/70 max-w-lg mx-auto">See what our visitors have to say about their journey through our orchard.</p>

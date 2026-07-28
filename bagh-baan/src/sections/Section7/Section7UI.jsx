@@ -3,10 +3,12 @@ import { motion } from 'framer-motion';
 
 const Section7UI = () => {
   return (
-    <section className="min-h-screen w-full relative flex flex-col justify-end bg-forest-green border-t border-marigold/10">
+    <section className="min-h-screen w-full relative flex flex-col justify-end bg-deep-plum border-t border-marigold/5">
+
+      <div className="absolute inset-0 bg-gradient-to-t from-[#000] to-transparent opacity-80 pointer-events-none"></div>
 
       {/* Map & Info Container */}
-      <div className="w-full p-8 md:p-20 mt-auto flex flex-col md:flex-row gap-16 items-center">
+      <div className="w-full p-8 md:p-20 mt-auto flex flex-col md:flex-row gap-16 items-center relative z-10">
 
         {/* Info Side */}
         <div className="w-full md:w-1/2 flex flex-col gap-8">

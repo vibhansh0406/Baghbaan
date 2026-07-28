@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 
 const Section2UI = () => {
   return (
-    <section className="py-32 w-full relative bg-[#2A1F3D] px-6 md:px-20 border-t border-marigold/10">
+    <section className="py-32 w-full relative bg-charcoal px-6 md:px-20 border-t border-marigold/5">
 
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-center relative z-10">
 
         {/* Typographic Story */}
         <motion.div

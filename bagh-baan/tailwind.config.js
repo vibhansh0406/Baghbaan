@@ -12,7 +12,9 @@ export default {
         'marigold': '#E8A93B',
         'ivory': '#F4ECD8',
         'dusk-plum': '#2A1F3D',
-        'wood-brown': '#5C3D2E'
+        'wood-brown': '#5C3D2E',
+        'charcoal': '#16161a',
+        'deep-plum': '#1E152A'
       },
       fontFamily: {
         cormorant: ['"Cormorant Garamond"', 'serif'],
