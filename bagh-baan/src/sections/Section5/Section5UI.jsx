@@ -42,9 +42,14 @@ const Section5UI = () => {
   ];
 
   return (
-    <section ref={wrapRef} className="h-screen w-full relative overflow-hidden bg-deep-plum border-t border-marigold/5 pt-20">
+    <section
+      ref={wrapRef}
+      className="h-screen w-full relative overflow-hidden parallax-bg pt-20 border-t border-marigold/10"
+      style={{ backgroundImage: `url('/gallery/SnapInsta.to_671254544_18078221882284851_6740273168744760907_n.jpg')` }}
+    >
 
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal to-transparent opacity-80 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[#111]/90"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#111] to-transparent opacity-80 pointer-events-none"></div>
 
       <div className="absolute top-12 left-0 w-full text-center z-20">
         <h3 className="font-cormorant text-4xl md:text-5xl text-marigold mb-2">The Courtyard</h3>

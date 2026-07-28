@@ -21,7 +21,11 @@ const Section6UI = () => {
   ];
 
   return (
-    <section className="min-h-screen w-full relative flex flex-col justify-center items-center py-20 bg-charcoal border-t border-marigold/5">
+    <section
+      className="min-h-screen w-full relative flex flex-col justify-center items-center py-20 parallax-bg border-t border-marigold/10"
+      style={{ backgroundImage: `url('/gallery/SnapInsta.to_672310439_18078221936284851_8366033340647186944_n.jpg')` }}
+    >
+      <div className="absolute inset-0 bg-[#111]/85"></div>
 
       <div className="text-center mb-16 relative z-10">
         <span className="text-marigold font-inter tracking-[0.2em] uppercase text-sm mb-4 block">Testimonials</span>
@@ -44,7 +48,7 @@ const Section6UI = () => {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, delay: i * 0.2 }}
             whileHover={{ y: -5 }}
-            className="bg-[#1F3B2C]/40 border border-ivory/10 p-10 rounded-sm hover:border-marigold/30 transition-all duration-300 shadow-xl"
+            className="bg-[#111]/60 backdrop-blur-sm border border-ivory/10 p-10 rounded-sm hover:border-marigold/30 transition-all duration-300 shadow-xl relative z-10"
           >
             <div className="text-marigold text-4xl mb-4 font-cormorant leading-none">"</div>
             <p className="font-inter text-ivory/90 mb-8 leading-relaxed italic text-lg">

@@ -40,7 +40,9 @@ function App() {
   }, []);
 
   return (
-    <div id="scroll-container" className="w-full text-ivory font-inter bg-dusk-plum min-h-screen">
+    <div id="scroll-container" className="w-full text-ivory font-inter bg-[#111] min-h-screen relative">
+      <div className="noise-overlay"></div>
+
       {/*
         In 2D mode, we render standard stacked sections.
         We can use background images/gradients to simulate the orchard path depth,

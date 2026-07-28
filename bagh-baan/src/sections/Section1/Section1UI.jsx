@@ -3,20 +3,16 @@ import { motion } from 'framer-motion';
 
 const Section1UI = () => {
   return (
-    <section className="min-h-screen w-full flex flex-col justify-center items-center relative overflow-hidden bg-deep-plum">
+    <section
+      className="min-h-screen w-full flex flex-col justify-center items-center relative overflow-hidden parallax-bg"
+      style={{ backgroundImage: `url('/gallery/SnapInsta.to_673880830_18078221945284851_2043286918831100065_n.jpg')` }}
+    >
 
-      {/* Elegant Jaali Pattern Background Overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `radial-gradient(#E8A93B 1px, transparent 1px), radial-gradient(#E8A93B 1px, transparent 1px)`,
-          backgroundSize: '40px 40px',
-          backgroundPosition: '0 0, 20px 20px'
-        }}
-      ></div>
+      {/* Deep Glassmorphism overlay for text legibility */}
+      <div className="absolute inset-0 bg-[#111]/70 backdrop-blur-[2px]"></div>
 
-      {/* Cinematic Gradient Vignette */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-charcoal/90"></div>
+      {/* Cinematic Gradient Vignette bridging to next section */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#111]/40 via-transparent to-[#111]"></div>
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}

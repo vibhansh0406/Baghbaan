@@ -3,9 +3,12 @@ import { motion } from 'framer-motion';
 
 const Section7UI = () => {
   return (
-    <section className="min-h-screen w-full relative flex flex-col justify-end bg-deep-plum border-t border-marigold/5">
-
-      <div className="absolute inset-0 bg-gradient-to-t from-[#000] to-transparent opacity-80 pointer-events-none"></div>
+    <section
+      className="min-h-screen w-full relative flex flex-col justify-end parallax-bg border-t border-marigold/10"
+      style={{ backgroundImage: `url('/gallery/SnapInsta.to_671804809_18078221909284851_3039663238816489581_n.jpg')` }}
+    >
+      <div className="absolute inset-0 bg-[#111]/85"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#111] to-transparent opacity-90 pointer-events-none"></div>
 
       {/* Map & Info Container */}
       <div className="w-full p-8 md:p-20 mt-auto flex flex-col md:flex-row gap-16 items-center relative z-10">
@@ -72,7 +75,7 @@ const Section7UI = () => {
       </div>
 
       {/* Premium Footer */}
-      <div className="w-full bg-[#111] text-ivory/50 text-center py-10 font-inter text-sm border-t border-marigold/10">
+      <div className="w-full bg-[#111] text-ivory/50 text-center py-10 font-inter text-sm border-t border-marigold/10 relative z-10">
         <p className="uppercase tracking-widest text-xs mb-2">Bagh Baan Family Restaurant</p>
         <p>© {new Date().getFullYear()} All rights reserved. 100% Pure Veg.</p>
         <p className="mt-2 text-xs opacity-50">NH-8, Ajmer–Jaipur Highway · Gagwana, Ajmer</p>

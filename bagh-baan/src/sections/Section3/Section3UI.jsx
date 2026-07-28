@@ -19,9 +19,14 @@ const MenuItem = ({ name, description, delay }) => (
 
 const Section3UI = () => {
   return (
-    <section id="menu" className="py-32 w-full relative bg-deep-plum px-6 md:px-20">
+    <section
+      id="menu"
+      className="py-32 w-full relative parallax-bg px-6 md:px-20"
+      style={{ backgroundImage: `url('/gallery/SnapInsta.to_673119064_18078221918284851_3803302254053532087_n.jpg')` }}
+    >
 
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal opacity-90 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[#111]/90"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-[#111] pointer-events-none"></div>
 
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-20">

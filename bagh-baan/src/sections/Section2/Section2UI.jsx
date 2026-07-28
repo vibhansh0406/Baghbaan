@@ -3,7 +3,11 @@ import { motion } from 'framer-motion';
 
 const Section2UI = () => {
   return (
-    <section className="py-32 w-full relative bg-charcoal px-6 md:px-20 border-t border-marigold/5">
+    <section
+      className="py-32 w-full relative parallax-bg px-6 md:px-20 border-t border-marigold/10"
+      style={{ backgroundImage: `url('/gallery/SnapInsta.to_670867522_18078221891284851_8695517073263434859_n.jpg')` }}
+    >
+      <div className="absolute inset-0 bg-[#111]/85"></div>
 
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-center relative z-10">
 
