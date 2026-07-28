@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Tempting';
+    src: url('https://fonts.cdnfonts.com/s/95191/Tempting.woff') format('woff');
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: #2A1F3D; /* dusk-plum */
+  color: #F4ECD8; /* ivory */
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1F3B2C;
+}
+::-webkit-scrollbar-thumb {
+  background: #E8A93B;
+  border-radius: 4px;
+}
