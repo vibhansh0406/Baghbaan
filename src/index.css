@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,8 +12,8 @@
 body {
   margin: 0;
   overflow-x: hidden;
-  background-color: #111;
-  color: #F4ECD8; /* ivory */
+  background-color: #9E9C89; /* Sage base */
+  color: #FFFFFF; /* ivory */
 }
 
 /* Global Noise Texture Overlay to make backgrounds feel cinematic and textured, never flat */
@@ -41,10 +41,10 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #111;
+  background: #9E9C89;
 }
 ::-webkit-scrollbar-thumb {
-  background: #E8A93B;
+  background: #83806C;
   border-radius: 4px;
 }
 

@@ -7,20 +7,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        'forest-green': '#1F3B2C',
-        'terracotta': '#B5502E',
-        'marigold': '#E8A93B',
-        'ivory': '#F4ECD8',
-        'dusk-plum': '#2A1F3D',
-        'wood-brown': '#5C3D2E',
-        'charcoal': '#16161a',
-        'deep-plum': '#1E152A'
+        'sage': '#9E9C89',          /* The base background color from the logo */
+        'sage-dark': '#83806C',     /* Darker variant for hover states */
+        'sage-light': '#B2B09F',    /* Lighter variant */
+        'terracotta': '#B5502E',    /* Kept for subtle pizza accents */
+        'marigold': '#E8A93B',      /* Kept for star ratings / tiny accents */
+        'ivory': '#FFFFFF',         /* Adjusted to pure white to match the logo text */
+        'charcoal': '#232520'       /* Adjusted charcoal to have a slight greenish tint */
       },
       fontFamily: {
         cormorant: ['"Cormorant Garamond"', 'serif'],
         inter: ['Inter', 'sans-serif'],
         tempting: ['Tempting', 'serif'],
-        playfair: ['"Playfair Display"', 'serif']
+        playfair: ['"Playfair Display"', 'serif'],
+        philosopher: ['Philosopher', 'sans-serif'] /* Closely mimics logo curl */
       }
     },
   },
