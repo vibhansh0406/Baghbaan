@@ -7,13 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        'sage': '#9E9C89',          /* The base background color from the logo */
-        'sage-dark': '#83806C',     /* Darker variant for hover states */
-        'sage-light': '#B2B09F',    /* Lighter variant */
-        'terracotta': '#B5502E',    /* Kept for subtle pizza accents */
-        'marigold': '#E8A93B',      /* Kept for star ratings / tiny accents */
-        'ivory': '#FFFFFF',         /* Adjusted to pure white to match the logo text */
-        'charcoal': '#232520'       /* Adjusted charcoal to have a slight greenish tint */
+        'sage': '#9E9C89',
+        'sage-dark': '#83806C',
+        'sage-light': '#D6D4C9',
+        'terracotta': '#B5502E',
+        'marigold': '#E8A93B',
+        'ivory': '#F9F8F3',         /* A softer, ultra-premium off-white */
+        'charcoal': '#1A1C18'       /* Deepest contrast */
       },
       fontFamily: {
         cormorant: ['"Cormorant Garamond"', 'serif'],

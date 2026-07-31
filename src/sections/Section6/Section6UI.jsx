@@ -22,25 +22,22 @@ const Section6UI = () => {
 
   return (
     <section
-      className="min-h-screen w-full relative flex flex-col justify-center items-center py-20 parallax-bg border-t border-marigold/10"
-      style={{ backgroundImage: `url('/gallery/SnapInsta.to_672310439_18078221936284851_8366033340647186944_n.jpg')` }}
+      className="py-24 md:py-40 w-full relative flex flex-col justify-center items-center bg-sage-light px-4 sm:px-6 md:px-8 rounded-t-[3rem] md:rounded-t-[5rem] -mt-16 z-50 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
     >
-      <div className="absolute inset-0 bg-[#111]/85"></div>
-
       <div className="text-center mb-16 relative z-10">
-        <span className="text-marigold font-inter tracking-[0.2em] uppercase text-sm mb-4 block">Testimonials</span>
-        <h3 className="font-playfair text-4xl sm:text-5xl md:text-6xl text-ivory mb-4">Guest Experiences</h3>
-        <p className="font-inter text-ivory/70 max-w-lg mx-auto text-sm md:text-base px-4">See what our visitors have to say about their journey through our orchard.</p>
+        <span className="text-sage-dark font-inter tracking-[0.2em] uppercase text-sm mb-4 block">Testimonials</span>
+        <h3 className="font-playfair text-4xl sm:text-5xl md:text-6xl text-charcoal mb-4">Guest Experiences</h3>
+        <p className="font-inter text-charcoal/70 max-w-lg mx-auto text-sm md:text-base px-4">See what our visitors have to say about their journey through our orchard.</p>
 
-        {/* Replacing the 3D medallion with a high-end 2D badge */}
-        <div className="inline-flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-full border border-marigold/30 mt-8 bg-wood-brown/20 shadow-lg">
+        {/* High-end 2D badge */}
+        <div className="inline-flex flex-col items-center justify-center w-28 h-28 md:w-32 md:h-32 rounded-full border border-sage-dark/30 mt-8 bg-ivory shadow-xl">
           <span className="text-marigold text-sm md:text-base tracking-widest mb-1">⭐⭐⭐⭐⭐</span>
-          <span className="font-tempting text-3xl md:text-4xl text-ivory">4.6</span>
-          <span className="text-[9px] md:text-[10px] text-ivory/60 uppercase tracking-widest mt-1">TripAdvisor</span>
+          <span className="font-playfair text-3xl md:text-4xl text-charcoal font-bold">4.6</span>
+          <span className="text-[9px] md:text-[10px] text-charcoal/60 uppercase tracking-widest mt-1">TripAdvisor</span>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 px-6 md:px-8 max-w-6xl w-full">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl w-full">
         {reviews.map((review, i) => (
           <motion.div
             key={i}
@@ -49,15 +46,15 @@ const Section6UI = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: i * 0.2 }}
             whileHover={{ y: -5 }}
-            className="bg-[#111]/70 backdrop-blur-md border border-ivory/10 p-8 md:p-10 rounded-sm hover:border-marigold/40 transition-all duration-300 shadow-xl relative z-10 flex flex-col"
+            className="bg-ivory p-8 md:p-10 rounded-[2rem] hover:shadow-2xl transition-all duration-300 shadow-lg relative z-10 flex flex-col border border-sage-dark/10"
           >
             <div className="text-marigold text-sm mb-4">⭐⭐⭐⭐⭐</div>
-            <p className="font-playfair text-ivory/90 mb-8 leading-relaxed italic text-base md:text-lg flex-grow">
+            <p className="font-playfair text-charcoal/90 mb-8 leading-relaxed italic text-base md:text-lg flex-grow">
               "{review.text}"
             </p>
-            <div className="flex justify-between items-center border-t border-marigold/20 pt-4 mt-auto">
-              <span className="font-inter font-semibold text-marigold tracking-wide text-sm">{review.author}</span>
-              <span className="text-[10px] md:text-xs text-ivory/50 uppercase tracking-wider">{review.source}</span>
+            <div className="flex justify-between items-center border-t border-sage-dark/20 pt-4 mt-auto">
+              <span className="font-inter font-semibold text-charcoal tracking-wide text-sm">{review.author}</span>
+              <span className="text-[10px] md:text-xs text-charcoal/50 uppercase tracking-wider">{review.source}</span>
             </div>
           </motion.div>
         ))}

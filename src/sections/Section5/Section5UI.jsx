@@ -13,14 +13,10 @@ const Section5UI = () => {
 
   return (
     <section
-      className="py-16 md:py-32 w-full relative bg-cover-center border-t border-marigold/10"
-      style={{ backgroundImage: `url('/gallery/SnapInsta.to_671254544_18078221882284851_6740273168744760907_n.jpg')` }}
+      className="py-24 md:py-40 w-full relative bg-charcoal px-4 sm:px-6 md:px-20 rounded-t-[3rem] md:rounded-t-[5rem] -mt-16 z-50 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
     >
 
-      <div className="absolute inset-0 bg-[#111]/90"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#111] to-transparent opacity-80 pointer-events-none"></div>
-
-      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+      <div className="relative z-20 max-w-6xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <span className="text-marigold font-inter tracking-[0.2em] uppercase text-xs md:text-sm mb-3 block">Atmosphere</span>
           <h3 className="font-playfair text-4xl sm:text-5xl md:text-6xl text-ivory mb-2">The Courtyard</h3>

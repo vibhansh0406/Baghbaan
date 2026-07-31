@@ -4,62 +4,66 @@ import { motion } from 'framer-motion';
 const Section1UI = () => {
   return (
     <section
-      className="min-h-[100svh] w-full flex flex-col justify-center items-center relative bg-sage"
+      className="min-h-[100svh] md:h-screen w-full flex flex-col justify-center items-center relative bg-charcoal sticky top-0 -z-10"
     >
 
-      {/* Light radial gradient to create focus on the center logo */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent to-sage-dark/40 pointer-events-none"></div>
+      {/*
+        This is an ultra-premium layout:
+        A dark, moody charcoal hero section that is sticky.
+        The Ivory Oasis section will slide up OVER this section as you scroll.
+      */}
 
-      {/* Cinematic Vignette bridging to the dark cinematic sections below */}
-      <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-[#111] to-transparent z-10 pointer-events-none"></div>
+      {/* Very faint noise and vignette */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-sage-dark/10 to-transparent pointer-events-none"></div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="text-center px-6 z-20 relative w-full max-w-4xl flex flex-col items-center justify-center"
+        className="text-center px-6 z-20 relative w-full max-w-4xl flex flex-col items-center justify-center pt-10 pb-32"
       >
 
-        {/* Strictly the Tree Logo, purely centered */}
+        {/* Strictly the Tree Logo, purely centered, tinted to sage so it matches brand without being a flat background */}
         <motion.img
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
+          transition={{ duration: 1.5, delay: 0.2 }}
           src="/logo_tree_only.png"
           alt="Bagh Baan Logo"
-          className="w-40 sm:w-48 md:w-56 h-auto object-contain mb-6 mx-auto"
+          className="w-40 sm:w-48 md:w-56 h-auto object-contain mb-8 mx-auto sepia contrast-125 hue-rotate-15 brightness-110 drop-shadow-2xl"
+          style={{ filter: "brightness(0) saturate(100%) invert(71%) sepia(10%) saturate(763%) hue-rotate(30deg) brightness(87%) contrast(85%)" }} // Forces it to Sage color (#9E9C89)
         />
 
         <motion.span
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="font-inter text-ivory/90 uppercase text-[10px] md:text-xs mb-1 block tracking-[0.2em]"
+          transition={{ duration: 1, delay: 0.5 }}
+          className="font-inter text-sage uppercase text-[10px] md:text-xs mb-2 block tracking-[0.25em]"
         >
           A UNIT OF ZW GROUP
         </motion.span>
 
         <motion.h1
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, delay: 0.8 }}
-          className="font-philosopher text-6xl sm:text-7xl md:text-[8rem] text-ivory mb-2 md:mb-4 drop-shadow-md leading-none tracking-wide"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.7 }}
+          className="font-philosopher text-6xl sm:text-7xl md:text-[8rem] text-ivory mb-2 md:mb-4 leading-none tracking-wide"
         >
-          Bagh<span className="mx-1 md:mx-3 text-3xl md:text-6xl align-middle">•</span>Baan
+          Bagh<span className="mx-1 md:mx-3 text-sage text-3xl md:text-6xl align-middle">•</span>Baan
         </motion.h1>
 
         <motion.div
           initial={{ width: 0 }}
-          animate={{ width: 280 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="h-[1px] bg-ivory/60 mx-auto mt-6 mb-8 md:my-8"
+          animate={{ width: "30%" }}
+          transition={{ duration: 1.5, delay: 1 }}
+          className="h-[1px] bg-sage-dark/40 mx-auto mt-6 mb-8 md:my-8"
         ></motion.div>
 
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.4 }}
-          className="font-playfair text-2xl sm:text-3xl md:text-4xl text-ivory mb-3 tracking-[0.3em] uppercase font-light"
+          transition={{ duration: 1, delay: 1.2 }}
+          className="font-playfair text-2xl sm:text-3xl md:text-4xl text-ivory mb-3 tracking-[0.4em] uppercase font-light"
         >
           Restaurant
         </motion.h2>
@@ -67,36 +71,11 @@ const Section1UI = () => {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.6 }}
-          className="font-inter text-xs sm:text-sm text-ivory/80 max-w-md mx-auto mb-10 md:mb-12 mt-4 uppercase tracking-widest"
+          transition={{ duration: 1, delay: 1.4 }}
+          className="font-inter text-xs sm:text-sm text-sage/70 max-w-md mx-auto mt-4 uppercase tracking-[0.15em]"
         >
           100% Pure Veg • Highway Fine Dining
         </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.8 }}
-          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full max-w-md mx-auto sm:max-w-none"
-        >
-          <motion.a
-            href="#menu"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-full sm:w-auto px-10 py-4 bg-ivory text-sage-dark font-inter font-semibold rounded-full shadow-2xl transition-all uppercase tracking-widest text-xs md:text-sm hover:bg-white"
-          >
-            Explore Menu
-          </motion.a>
-
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-full sm:w-auto px-10 py-4 border border-ivory/50 text-ivory font-inter font-semibold rounded-full backdrop-blur-sm hover:bg-ivory/10 transition-colors uppercase tracking-widest text-xs md:text-sm cursor-pointer shadow-lg"
-            onClick={() => window.open('https://maps.google.com/?q=Bagh+Baan+Family+Restaurant+Gagwana+Ajmer', '_blank')}
-          >
-            Get Directions
-          </motion.a>
-        </motion.div>
       </motion.div>
 
     </section>

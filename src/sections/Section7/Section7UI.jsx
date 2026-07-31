@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 const Section7UI = () => {
   return (
     <section
-      className="min-h-screen w-full relative flex flex-col justify-end parallax-bg border-t border-marigold/10 pt-16 md:pt-0"
+      className="pt-24 md:pt-40 w-full relative flex flex-col justify-end parallax-bg border-t border-marigold/10 rounded-t-[3rem] md:rounded-t-[5rem] -mt-16 z-50 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
       style={{ backgroundImage: `url('/gallery/SnapInsta.to_671804809_18078221909284851_3039663238816489581_n.jpg')` }}
     >
-      <div className="absolute inset-0 bg-[#111]/85"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-[#111] to-transparent opacity-90 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-charcoal/90 rounded-t-[3rem] md:rounded-t-[5rem]"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal to-transparent opacity-100 pointer-events-none rounded-t-[3rem] md:rounded-t-[5rem]"></div>
 
       {/* Map & Info Container */}
-      <div className="w-full p-6 md:p-20 mt-auto flex flex-col md:flex-row gap-12 md:gap-16 items-start md:items-center relative z-10">
+      <div className="w-full p-6 md:p-20 flex flex-col md:flex-row gap-12 md:gap-16 items-start md:items-center relative z-10 max-w-7xl mx-auto">
 
         {/* Info Side */}
         <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8">

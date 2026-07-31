@@ -21,12 +21,11 @@ const Section3UI = () => {
   return (
     <section
       id="menu"
-      className="py-16 md:py-32 w-full relative parallax-bg px-4 sm:px-6 md:px-20"
+      className="py-24 md:py-40 w-full relative parallax-bg px-4 sm:px-6 md:px-20 rounded-t-[3rem] md:rounded-t-[5rem] -mt-16 z-30 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
       style={{ backgroundImage: `url('/gallery/SnapInsta.to_673119064_18078221918284851_3803302254053532087_n.jpg')` }}
     >
 
-      <div className="absolute inset-0 bg-[#111]/90"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-[#111] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-charcoal/95 rounded-t-[3rem] md:rounded-t-[5rem]"></div>
 
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-16 md:mb-24">
