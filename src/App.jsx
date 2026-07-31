@@ -40,7 +40,7 @@ function App() {
   }, []);
 
   return (
-    <div id="scroll-container" className="w-full text-ivory font-inter bg-sage min-h-screen relative">
+    <div id="scroll-container" className="w-full text-ivory font-inter bg-[#111] min-h-screen relative">
       <div className="noise-overlay"></div>
 
       {/*

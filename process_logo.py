@@ -2,35 +2,31 @@ from PIL import Image
 import numpy as np
 
 def extract_logo():
-    # Open the image
     img = Image.open('public/logo_full.jpeg').convert('RGBA')
     data = np.array(img)
 
-    # The background is a greenish color, the logo is white.
-    # We want to keep the white parts and make everything else transparent.
-
-    # Calculate luminance/brightness
     r, g, b, a = data.T
     luminance = (r * 0.299 + g * 0.587 + b * 0.114)
 
-    # Create a mask where pixels are white/bright enough
-    # The logo is pure white, so high threshold
-    mask = luminance > 200
+    # Very tight threshold for pure white
+    mask = luminance > 220
 
-    # Set alpha channel to 0 for non-white pixels
-    data[..., 3] = np.where(mask.T, 255, 0)
+    # Instead of hard alpha, we use luminance to create a smooth alpha mask
+    # This prevents jagged edges
+    alpha = np.where(mask.T, luminance.T, 0)
+    data[..., 3] = alpha
 
-    # Create the transparent image
+    # Force all kept pixels to be pure white
+    data[..., 0] = 255
+    data[..., 1] = 255
+    data[..., 2] = 255
+
     out_img = Image.fromarray(data)
 
-    # Crop to just the tree part for the favicon
-    # The image is 1080x1302. Tree is roughly in the top half.
-    # We'll just save the whole thing transparent first
-    out_img.save('public/logo_transparent.png')
-
-    # Crop just the tree (approximate coordinates based on visual inspection)
-    # x1, y1, x2, y2
-    tree_crop = out_img.crop((200, 300, 880, 600))
-    tree_crop.save('public/favicon.png')
+    # We only want the tree, not the text (we rebuilt the text in HTML/CSS)
+    # The original image is 1080x1302
+    # Tree is roughly between Y:280 and Y:500, X:260 and X:820
+    tree_crop = out_img.crop((200, 250, 880, 520))
+    tree_crop.save('public/logo_tree_only.png')
 
 extract_logo()
