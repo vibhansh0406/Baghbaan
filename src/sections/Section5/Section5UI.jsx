@@ -11,22 +11,27 @@ const Section5UI = () => {
   useEffect(() => {
     if (!wrapRef.current || !scrollContainerRef.current) return;
 
-    let totalScroll = scrollContainerRef.current.scrollWidth - window.innerWidth;
+    // Only apply GSAP horizontal scroll pinning on desktop (min-width: 768px)
+    let mm = gsap.matchMedia();
 
-    gsap.to(scrollContainerRef.current, {
-      x: -totalScroll,
-      ease: "none",
-      scrollTrigger: {
-        trigger: wrapRef.current,
-        start: "top top",
-        end: () => "+=" + totalScroll,
-        pin: true,
-        scrub: 1,
-      }
+    mm.add("(min-width: 768px)", () => {
+      let totalScroll = scrollContainerRef.current.scrollWidth - window.innerWidth;
+
+      gsap.to(scrollContainerRef.current, {
+        x: -totalScroll,
+        ease: "none",
+        scrollTrigger: {
+          trigger: wrapRef.current,
+          start: "top top",
+          end: () => "+=" + totalScroll,
+          pin: true,
+          scrub: 1,
+        }
+      });
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
+      mm.revert();
     };
   }, []);
 
@@ -44,29 +49,30 @@ const Section5UI = () => {
   return (
     <section
       ref={wrapRef}
-      className="h-screen w-full relative overflow-hidden parallax-bg pt-20 border-t border-marigold/10"
+      className="min-h-screen md:h-screen w-full relative overflow-hidden parallax-bg pt-24 md:pt-20 pb-16 md:pb-0 border-t border-marigold/10 flex flex-col md:block"
       style={{ backgroundImage: `url('/gallery/SnapInsta.to_671254544_18078221882284851_6740273168744760907_n.jpg')` }}
     >
 
       <div className="absolute inset-0 bg-[#111]/90"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-[#111] to-transparent opacity-80 pointer-events-none"></div>
 
-      <div className="absolute top-12 left-0 w-full text-center z-20">
-        <h3 className="font-cormorant text-4xl md:text-5xl text-marigold mb-2">The Courtyard</h3>
-        <p className="font-inter text-ivory/70 tracking-widest uppercase text-sm">Ambiance & Atmosphere</p>
+      <div className="relative md:absolute md:top-12 left-0 w-full text-center z-20 mb-8 md:mb-0">
+        <h3 className="font-playfair text-4xl sm:text-5xl md:text-6xl text-marigold mb-2">The Courtyard</h3>
+        <p className="font-inter text-ivory/70 tracking-widest uppercase text-xs md:text-sm">Ambiance & Atmosphere</p>
       </div>
 
-      <div className="h-full w-full flex items-center">
+      <div className="flex-1 md:h-full w-full flex items-center overflow-hidden">
+        {/* On mobile: Native horizontal scrolling (overflow-x-auto, snap). On desktop: GSAP pinned scroll */}
         <div
           ref={scrollContainerRef}
-          className="flex gap-12 px-10 md:px-[15vw] h-[60vh] items-center"
+          className="flex gap-6 md:gap-12 px-6 md:px-[15vw] h-[50vh] md:h-[60vh] items-center w-full md:w-auto overflow-x-auto md:overflow-visible snap-x snap-mandatory hide-scrollbar"
         >
           {photos.map((src, i) => (
             <div
               key={i}
-              className="relative h-full w-[85vw] md:w-[45vw] shrink-0 overflow-hidden border border-marigold/20 group shadow-2xl bg-[#111]"
+              className="relative h-full w-[85vw] md:w-[45vw] shrink-0 overflow-hidden border border-marigold/20 group shadow-2xl bg-[#111] snap-center"
             >
-              <div className="absolute inset-0 bg-dusk-plum/30 group-hover:bg-transparent transition-all duration-700 z-10"></div>
+              <div className="absolute inset-0 bg-charcoal/30 group-hover:bg-transparent transition-all duration-700 z-10"></div>
               <img
                 src={`/gallery/${src}`}
                 alt="Restaurant Courtyard"

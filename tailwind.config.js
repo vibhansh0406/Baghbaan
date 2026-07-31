@@ -19,7 +19,8 @@ export default {
       fontFamily: {
         cormorant: ['"Cormorant Garamond"', 'serif'],
         inter: ['Inter', 'sans-serif'],
-        tempting: ['Tempting', 'serif']
+        tempting: ['Tempting', 'serif'],
+        playfair: ['"Playfair Display"', 'serif']
       }
     },
   },
