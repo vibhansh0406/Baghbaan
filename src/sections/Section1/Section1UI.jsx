@@ -4,17 +4,19 @@ import { motion } from 'framer-motion';
 const Section1UI = () => {
   return (
     <section
-      className="min-h-[100svh] md:h-screen w-full flex flex-col justify-center items-center relative bg-charcoal sticky top-0 -z-10"
+      className="min-h-[100svh] md:h-screen w-full flex flex-col justify-center items-center relative bg-charcoal sticky top-0 -z-10 bg-cover-center"
+      style={{ backgroundImage: `url('/gallery/SnapInsta.to_673880830_18078221945284851_2043286918831100065_n.jpg')` }}
     >
 
       {/*
-        This is an ultra-premium layout:
-        A dark, moody charcoal hero section that is sticky.
-        The Ivory Oasis section will slide up OVER this section as you scroll.
+        Deep cinematic overlay to keep the moody premium feel
+        while showing the gorgeous restaurant photography underneath.
       */}
+      <div className="absolute inset-0 bg-charcoal/85 backdrop-blur-[2px]"></div>
 
-      {/* Very faint noise and vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-sage-dark/10 to-transparent pointer-events-none"></div>
+      {/* Vignette bridging to the bright Ivory section below */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-sage-dark/20 to-transparent pointer-events-none"></div>
+      <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-charcoal to-transparent pointer-events-none"></div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
