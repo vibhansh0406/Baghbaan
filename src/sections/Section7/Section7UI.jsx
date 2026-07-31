@@ -29,7 +29,7 @@ const Section7UI = () => {
               <span className="text-marigold text-xl md:text-2xl mt-1 md:mt-0">📍</span>
               <p className="leading-relaxed">
                 <strong className="text-marigold tracking-wide font-normal block mb-1">Bagh Baan Family Restaurant</strong>
-                NH-8, Ajmer–Jaipur Expressway,<br/>
+                NH-8, Ajmer-Jaipur Expressway,<br/>
                 Gagwana, Ajmer, Rajasthan 305023, India
               </p>
             </div>
@@ -51,7 +51,7 @@ const Section7UI = () => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="mt-4 bg-terracotta text-ivory font-inter font-medium py-4 px-10 rounded-sm self-start shadow-xl hover:bg-terracotta/90 transition-colors uppercase tracking-widest text-xs md:text-sm w-full sm:w-auto text-center"
+            className="mt-4 bg-terracotta text-ivory font-inter font-medium py-4 px-10 rounded-full self-start shadow-xl hover:bg-terracotta/90 transition-colors uppercase tracking-widest text-xs md:text-sm w-full sm:w-auto text-center"
           >
             Get Directions
           </motion.a>
@@ -78,7 +78,7 @@ const Section7UI = () => {
       <div className="w-full bg-[#111] text-ivory/50 text-center py-8 md:py-10 px-4 font-inter text-xs md:text-sm border-t border-marigold/10 relative z-10">
         <p className="uppercase tracking-widest mb-2">Bagh Baan Family Restaurant</p>
         <p>© {new Date().getFullYear()} All rights reserved. 100% Pure Veg.</p>
-        <p className="mt-2 opacity-50">NH-8, Ajmer–Jaipur Highway · Gagwana, Ajmer</p>
+        <p className="mt-2 opacity-50">NH-8, Ajmer-Jaipur Highway · Gagwana, Ajmer</p>
       </div>
 
     </section>

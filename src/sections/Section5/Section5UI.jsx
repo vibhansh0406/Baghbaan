@@ -31,7 +31,7 @@ const Section5UI = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="relative h-64 md:h-80 w-full overflow-hidden border border-ivory/10 rounded-sm group shadow-xl bg-[#111]"
+              className="relative h-64 md:h-80 w-full overflow-hidden border border-ivory/10 rounded-[1.5rem] group shadow-xl bg-[#111]"
             >
               <div className="absolute inset-0 bg-[#111]/40 group-hover:bg-transparent transition-all duration-700 z-10"></div>
               <img

@@ -50,7 +50,7 @@ const Section3UI = () => {
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ y: -5, borderColor: "rgba(232, 169, 59, 0.4)" }}
-              className="bg-[#111]/60 backdrop-blur-md border border-ivory/10 p-6 md:p-8 rounded-sm shadow-xl flex flex-col justify-center items-center text-center transition-all cursor-pointer group"
+              className="bg-[#111]/60 backdrop-blur-md border border-ivory/10 p-6 md:p-8 rounded-[1.5rem] shadow-xl flex flex-col justify-center items-center text-center transition-all cursor-pointer group"
             >
               <h4 className="font-playfair text-2xl md:text-3xl text-ivory mb-2 group-hover:text-marigold transition-colors">{item.name}</h4>
               <p className="font-inter text-sm text-ivory/60 font-light max-w-xs">{item.desc}</p>
