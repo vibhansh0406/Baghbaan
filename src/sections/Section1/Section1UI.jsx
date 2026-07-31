@@ -20,14 +20,14 @@ const Section1UI = () => {
         className="text-center px-4 sm:px-8 z-20 relative w-full max-w-5xl flex flex-col items-center"
       >
 
-        {/* Brand Logo Extracted from Image (perfectly proportioned) */}
+        {/* Brand Logo Extracted from Image (perfectly proportioned and centered) */}
         <motion.img
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5, delay: 0.3 }}
           src="/logo_tree_only.png"
           alt="Bagh Baan Tree Logo"
-          className="w-48 sm:w-64 md:w-80 object-contain mb-4 mix-blend-screen"
+          className="w-32 sm:w-40 md:w-48 object-contain mb-6 mix-blend-screen mx-auto block"
         />
 
         <motion.span

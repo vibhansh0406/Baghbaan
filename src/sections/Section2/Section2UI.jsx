@@ -11,7 +11,7 @@ const Section2UI = () => {
 
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 md:gap-16 items-start md:items-center relative z-10">
 
-        {/* Typographic Story */}
+        {/* Punchy, engaging copy */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -19,16 +19,22 @@ const Section2UI = () => {
           transition={{ duration: 1 }}
           className="w-full md:w-1/2"
         >
-          <h4 className="text-marigold font-inter tracking-[0.2em] uppercase text-xs md:text-sm mb-4">Our Heritage</h4>
-          <h3 className="font-playfair text-4xl sm:text-5xl md:text-6xl text-ivory mb-6 md:mb-8 leading-snug md:leading-tight">
-            The Gardener's <br/><span className="text-terracotta italic font-playfair">Table</span>
+          <h4 className="text-marigold font-inter tracking-[0.2em] uppercase text-xs md:text-sm mb-4">The Oasis</h4>
+          <h3 className="font-playfair text-4xl sm:text-5xl md:text-7xl text-ivory mb-6 md:mb-8 leading-none">
+            Stop. Relax. <br/><span className="text-terracotta italic font-playfair">Indulge.</span>
           </h3>
-          <p className="font-inter text-ivory/80 leading-relaxed mb-6 text-base md:text-lg">
-            "Bagh Baan" translates to the keeper of the orchard. Nestled seamlessly on the Ajmer-Jaipur expressway, we provide travelers and local families alike with a sanctuary of warmth, comfort, and authentic culinary heritage.
+          <p className="font-inter text-ivory/90 leading-relaxed mb-8 text-lg md:text-xl font-light">
+            More than just a highway stop. Experience the true taste of Rajasthan in a serene, pure veg sanctuary.
           </p>
-          <p className="font-inter text-ivory/80 leading-relaxed text-base md:text-lg">
-            From our family to yours, experience the true taste of Rajasthan in a 100% Pure Veg environment, elevated by modern hospitality and spacious, serene surroundings.
-          </p>
+
+          <motion.a
+            href="#menu"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block px-8 py-3 bg-sage text-white font-inter font-medium rounded-full shadow-xl transition-colors uppercase tracking-widest text-xs hover:bg-sage-dark"
+          >
+            Discover the Taste
+          </motion.a>
         </motion.div>
 
         {/* Elegant Stat Grid */}

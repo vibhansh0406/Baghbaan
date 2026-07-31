@@ -29,21 +29,34 @@ const Section3UI = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-[#111] pointer-events-none"></div>
 
       <div className="max-w-5xl mx-auto relative z-10">
-        <div className="text-center mb-12 md:mb-20">
-          <span className="text-marigold font-inter tracking-[0.2em] uppercase text-xs md:text-sm mb-3 md:mb-4 block">Signature Experience</span>
-          <h3 className="font-playfair text-4xl sm:text-5xl md:text-6xl text-ivory mb-4 md:mb-6">The Rajasthani Thali</h3>
-          <p className="font-inter text-ivory/70 max-w-lg mx-auto text-base md:text-lg px-4 md:px-0">
-            A symphony of flavors, curated from generations of family recipes. 100% Pure Veg and authentically prepared.
+        <div className="text-center mb-16 md:mb-24">
+          <span className="text-marigold font-inter tracking-[0.2em] uppercase text-xs md:text-sm mb-3 block">Heritage on a Plate</span>
+          <h3 className="font-playfair text-5xl sm:text-6xl md:text-7xl text-ivory mb-4 leading-none">The Royal Thali</h3>
+          <p className="font-inter text-ivory/70 max-w-md mx-auto text-sm md:text-base px-4 font-light">
+            Generations of Rajasthani flavor, curated into one unforgettable masterpiece.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 md:gap-x-20 gap-y-8 md:gap-y-10">
-          <MenuItem name="Panchmel Dal" description="A rich blend of five lentils slow-cooked with aromatic spices." delay={0.1} />
-          <MenuItem name="Gatte ki Sabzi" description="Gram flour dumplings simmered in a tangy yogurt and spice curry." delay={0.2} />
-          <MenuItem name="Ker Sangri" description="Traditional desert beans and berries stir-fried with Rajasthani masalas." delay={0.3} />
-          <MenuItem name="Bati & Churma" description="Baked wheat spheres served with sweet crushed wheat and pure ghee." delay={0.4} />
-          <MenuItem name="Jeera Rice" description="Basmati rice tempered with cumin and whole spices." delay={0.5} />
-          <MenuItem name="Lehsuni Chutney" description="Fiery garlic chutney to elevate the thali experience." delay={0.6} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {[
+            { name: "Panchmel Dal", desc: "Five lentils slow-cooked with aromatic spices." },
+            { name: "Gatte ki Sabzi", desc: "Gram flour dumplings in a tangy yogurt curry." },
+            { name: "Ker Sangri", desc: "Desert beans stir-fried with rich masalas." },
+            { name: "Bati & Churma", desc: "Baked wheat spheres with sweet crushed wheat." }
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              whileHover={{ y: -5, borderColor: "rgba(232, 169, 59, 0.4)" }}
+              className="bg-[#111]/60 backdrop-blur-md border border-ivory/10 p-6 md:p-8 rounded-sm shadow-xl flex flex-col justify-center items-center text-center transition-all cursor-pointer group"
+            >
+              <h4 className="font-playfair text-2xl md:text-3xl text-ivory mb-2 group-hover:text-marigold transition-colors">{item.name}</h4>
+              <p className="font-inter text-sm text-ivory/60 font-light max-w-xs">{item.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
 
