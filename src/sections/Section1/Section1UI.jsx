@@ -4,37 +4,37 @@ import { motion } from 'framer-motion';
 const Section1UI = () => {
   return (
     <section
-      className="min-h-screen w-full flex flex-col justify-center items-center relative overflow-hidden bg-sage"
+      className="min-h-[100svh] w-full flex flex-col justify-center items-center relative bg-sage"
     >
 
       {/* Light radial gradient to create focus on the center logo */}
-      <div className="absolute inset-0 bg-radial-gradient from-transparent to-sage-dark/30 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent to-sage-dark/40 pointer-events-none"></div>
 
       {/* Cinematic Vignette bridging to the dark cinematic sections below */}
-      <div className="absolute bottom-0 w-full h-48 bg-gradient-to-t from-[#111] to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-[#111] to-transparent z-10 pointer-events-none"></div>
 
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-        className="text-center px-4 sm:px-8 z-20 relative w-full max-w-5xl flex flex-col items-center"
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="text-center px-6 z-20 relative w-full max-w-4xl flex flex-col items-center justify-center"
       >
 
-        {/* Brand Logo Extracted from Image (perfectly proportioned and centered) */}
+        {/* Strictly the Tree Logo, purely centered */}
         <motion.img
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, delay: 0.3 }}
+          transition={{ duration: 1, delay: 0.2 }}
           src="/logo_tree_only.png"
-          alt="Bagh Baan Tree Logo"
-          className="w-32 sm:w-40 md:w-48 object-contain mb-6 mix-blend-screen mx-auto block"
+          alt="Bagh Baan Logo"
+          className="w-40 sm:w-48 md:w-56 h-auto object-contain mb-6 mx-auto"
         />
 
         <motion.span
-          initial={{ opacity: 0, letterSpacing: "0em" }}
-          animate={{ opacity: 1, letterSpacing: "0.15em" }}
-          transition={{ duration: 1.5, delay: 0.5 }}
-          className="font-inter text-ivory/90 uppercase text-[9px] sm:text-[11px] md:text-xs mb-1 block tracking-widest"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="font-inter text-ivory/90 uppercase text-[10px] md:text-xs mb-1 block tracking-[0.2em]"
         >
           A UNIT OF ZW GROUP
         </motion.span>

@@ -48,27 +48,20 @@ const Section4UI = () => {
           </div>
         </motion.div>
 
-        {/* Masonry Image layout instead of abstract circle to show actual food context */}
-        <div className="w-full md:w-1/2 grid grid-cols-2 gap-4 mt-8 md:mt-0 h-[40vh] md:h-[60vh]">
+        {/* Elegant typography-focused element, replacing the unwanted masonry images */}
+        <div className="w-full md:w-1/2 flex justify-center items-center mt-12 md:mt-0">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="w-full h-full rounded-sm overflow-hidden border border-ivory/10 shadow-2xl relative translate-y-8"
+            transition={{ duration: 1 }}
+            className="text-center p-12 border border-marigold/20 rounded-full w-72 h-72 md:w-96 md:h-96 flex flex-col justify-center items-center shadow-2xl bg-gradient-to-br from-[#111]/80 to-[#111]/40 backdrop-blur-md"
           >
-            <div className="absolute inset-0 bg-marigold/10 mix-blend-overlay z-10"></div>
-            <img src="/gallery/SnapInsta.to_673159396_18078221957284851_5532973771754436603_n.jpg" alt="Pizza context 1" className="w-full h-full object-cover grayscale-[20%]" />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full h-full rounded-sm overflow-hidden border border-ivory/10 shadow-2xl relative -translate-y-4"
-          >
-            <div className="absolute inset-0 bg-terracotta/10 mix-blend-overlay z-10"></div>
-            <img src="/gallery/SnapInsta.to_672310439_18078221936284851_8366033340647186944_n.jpg" alt="Pizza context 2" className="w-full h-full object-cover grayscale-[20%]" />
+            <span className="font-playfair text-6xl text-terracotta mb-2">"</span>
+            <p className="font-inter font-light text-ivory/80 italic text-sm md:text-base leading-relaxed">
+              Every slice carries the warmth of our hearth and the heritage of our garden.
+            </p>
+            <span className="font-playfair text-6xl text-terracotta mt-2 rotate-180 inline-block">"</span>
           </motion.div>
         </div>
 
