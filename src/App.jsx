@@ -9,7 +9,7 @@ import Section7UI from './sections/Section7/Section7UI';
 
 function App() {
   return (
-    <div className="w-full text-ivory font-inter bg-[#111] min-h-screen relative overflow-x-hidden">
+    <div className="w-full text-ivory font-inter bg-[#111] min-h-screen relative isolate">
       <div className="noise-overlay pointer-events-none"></div>
 
       {/*

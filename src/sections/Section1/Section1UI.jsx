@@ -41,7 +41,7 @@ const Section1UI = () => {
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover grayscale-[30%] contrast-[1.1] brightness-90 z-0"
-        src="/restaurant.mp4"
+        src="/resturant.mp4"
         poster="/gallery/SnapInsta.to_672310439_18078221936284851_8366033340647186944_n.jpg"
         autoPlay
         loop
@@ -53,7 +53,7 @@ const Section1UI = () => {
         Deep cinematic overlay to keep the moody premium feel
         while showing the gorgeous restaurant video underneath.
       */}
-      <div className="absolute inset-0 bg-charcoal/60 backdrop-blur-[2px] z-[1]"></div>
+      <div className="absolute inset-0 bg-charcoal/40 backdrop-blur-[1px] z-[1]"></div>
 
       {/* Vintage Effect Overlays */}
       <div className="absolute inset-0 bg-[#3b2d1d] mix-blend-color z-[2] opacity-40 pointer-events-none"></div>
