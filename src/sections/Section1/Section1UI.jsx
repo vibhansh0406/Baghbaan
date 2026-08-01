@@ -6,7 +6,6 @@ const Section1UI = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-  const [videoError, setVideoError] = useState(false);
 
   // Attempt to autoplay muted on mount
   useEffect(() => {
@@ -45,7 +44,7 @@ const Section1UI = () => {
 
   return (
     <section
-      className="min-h-[100svh] md:h-screen w-full flex flex-col justify-center items-center relative bg-charcoal sticky top-0 -z-10 bg-cover-center overflow-hidden"
+      className="min-h-[100svh] md:h-screen w-full flex flex-col justify-center items-center relative bg-charcoal bg-cover-center overflow-hidden"
     >
 
       {/* Background Video */}
@@ -59,10 +58,6 @@ const Section1UI = () => {
         muted
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
-        onError={(e) => {
-          console.error("Video error:", e);
-          setVideoError(true);
-        }}
       >
         {/* We use a source tag to ensure proper MIME type resolution */}
         <source src="/resturant.mp4" type="video/mp4" />
@@ -108,11 +103,6 @@ const Section1UI = () => {
             {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
           </button>
         </div>
-        {videoError && (
-          <span className="text-red-400 text-xs font-inter bg-black/50 p-2 rounded backdrop-blur-sm shadow border border-red-500/30">
-            Video file missing. Make sure "resturant.mp4" is in /public
-          </span>
-        )}
       </motion.div>
 
       {/* Logo & Content */}
