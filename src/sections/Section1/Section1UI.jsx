@@ -4,22 +4,22 @@ import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
 const Section1UI = () => {
   const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [videoError, setVideoError] = useState(false);
 
   // Attempt to autoplay muted on mount
   useEffect(() => {
     if (videoRef.current) {
-      // Browsers often require videos to be muted to autoplay.
-      // Setting the property directly helps bypass some strict policies.
       videoRef.current.muted = true;
       setIsMuted(true);
 
       const playPromise = videoRef.current.play();
       if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.log("Autoplay prevented:", error);
-          // If autoplay fails, update state so UI reflects it is paused
+        playPromise.then(() => {
+          setIsPlaying(true);
+        }).catch(error => {
+          console.log("Autoplay prevented or video failed to load:", error);
           setIsPlaying(false);
         });
       }
@@ -28,19 +28,18 @@ const Section1UI = () => {
 
   const togglePlay = () => {
     if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
+      if (videoRef.current.paused) {
+        videoRef.current.play().catch(e => console.error("Play failed:", e));
       } else {
-        videoRef.current.play();
+        videoRef.current.pause();
       }
-      setIsPlaying(!isPlaying);
     }
   };
 
   const toggleMute = () => {
     if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
     }
   };
 
@@ -53,19 +52,29 @@ const Section1UI = () => {
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover grayscale-[30%] contrast-[1.1] brightness-90 z-0"
-        src="/resturant.mp4"
         poster="/gallery/SnapInsta.to_672310439_18078221936284851_8366033340647186944_n.jpg"
         autoPlay
         loop
         playsInline
-        muted={isMuted}
-      />
+        muted
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onError={(e) => {
+          console.error("Video error:", e);
+          setVideoError(true);
+        }}
+      >
+        {/* We use a source tag to ensure proper MIME type resolution */}
+        <source src="/resturant.mp4" type="video/mp4" />
+        <source src="/video/resturant.mp4" type="video/mp4" />
+        <source src="/restaurant.mp4" type="video/mp4" />
+      </video>
 
       {/*
         Deep cinematic overlay to keep the moody premium feel
         while showing the gorgeous restaurant video underneath.
       */}
-      <div className="absolute inset-0 bg-charcoal/40 backdrop-blur-[1px] z-[1]"></div>
+      <div className="absolute inset-0 bg-charcoal/40 backdrop-blur-[1px] z-[1] pointer-events-none"></div>
 
       {/* Vintage Effect Overlays */}
       <div className="absolute inset-0 bg-[#3b2d1d] mix-blend-color z-[2] opacity-40 pointer-events-none"></div>
@@ -81,20 +90,29 @@ const Section1UI = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
-        className="absolute top-8 right-8 z-30 flex gap-4"
+        className="absolute top-8 right-8 z-30 flex flex-col gap-2"
       >
-        <button
-          onClick={togglePlay}
-          className="w-12 h-12 rounded-full border border-ivory/30 bg-charcoal/40 backdrop-blur-md flex items-center justify-center text-ivory hover:bg-ivory hover:text-charcoal transition-all duration-300"
-        >
-          {isPlaying ? <Pause size={20} className="fill-current" /> : <Play size={20} className="fill-current translate-x-[1px]" />}
-        </button>
-        <button
-          onClick={toggleMute}
-          className="w-12 h-12 rounded-full border border-ivory/30 bg-charcoal/40 backdrop-blur-md flex items-center justify-center text-ivory hover:bg-ivory hover:text-charcoal transition-all duration-300"
-        >
-          {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
-        </button>
+        <div className="flex gap-4">
+          <button
+            onClick={togglePlay}
+            className="w-12 h-12 rounded-full border border-ivory/30 bg-charcoal/40 backdrop-blur-md flex items-center justify-center text-ivory hover:bg-ivory hover:text-charcoal transition-all duration-300 cursor-pointer"
+            aria-label={isPlaying ? "Pause Video" : "Play Video"}
+          >
+            {isPlaying ? <Pause size={20} className="fill-current" /> : <Play size={20} className="fill-current translate-x-[1px]" />}
+          </button>
+          <button
+            onClick={toggleMute}
+            className="w-12 h-12 rounded-full border border-ivory/30 bg-charcoal/40 backdrop-blur-md flex items-center justify-center text-ivory hover:bg-ivory hover:text-charcoal transition-all duration-300 cursor-pointer"
+            aria-label={isMuted ? "Unmute Video" : "Mute Video"}
+          >
+            {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+          </button>
+        </div>
+        {videoError && (
+          <span className="text-red-400 text-xs font-inter bg-black/50 p-2 rounded backdrop-blur-sm shadow border border-red-500/30">
+            Video file missing. Make sure "resturant.mp4" is in /public
+          </span>
+        )}
       </motion.div>
 
       {/* Logo & Content */}
