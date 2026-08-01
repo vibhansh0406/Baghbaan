@@ -10,7 +10,19 @@ const Section1UI = () => {
   // Attempt to autoplay muted on mount
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.play().catch(e => console.log("Autoplay prevented:", e));
+      // Browsers often require videos to be muted to autoplay.
+      // Setting the property directly helps bypass some strict policies.
+      videoRef.current.muted = true;
+      setIsMuted(true);
+
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log("Autoplay prevented:", error);
+          // If autoplay fails, update state so UI reflects it is paused
+          setIsPlaying(false);
+        });
+      }
     }
   }, []);
 
@@ -93,15 +105,15 @@ const Section1UI = () => {
         className="text-center px-6 z-20 relative w-full max-w-4xl flex flex-col items-center justify-center pt-10 pb-32 pointer-events-none"
       >
 
-        {/* Strictly the Tree Logo, purely centered, tinted to sage so it matches brand without being a flat background */}
+        {/* New Logo as requested */}
         <motion.img
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5, delay: 0.2 }}
           src="/logo_tree_only.png"
           alt="Bagh Baan Logo"
-          className="w-40 sm:w-48 md:w-56 h-auto object-contain mb-8 mx-auto sepia contrast-125 hue-rotate-15 brightness-110 drop-shadow-2xl"
-          style={{ filter: "brightness(0) saturate(100%) invert(71%) sepia(10%) saturate(763%) hue-rotate(30deg) brightness(87%) contrast(85%)" }} // Forces it to Sage color (#9E9C89)
+          className="w-40 sm:w-48 md:w-56 h-auto object-contain mb-8 mx-auto drop-shadow-2xl"
+          // Removed the forced CSS filters so the newly provided logo's natural colors show
         />
 
         <motion.span
