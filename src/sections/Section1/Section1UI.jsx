@@ -1,46 +1,22 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
 const Section1UI = () => {
   const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
 
   // Attempt to autoplay muted on mount
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.muted = true;
-      setIsMuted(true);
 
       const playPromise = videoRef.current.play();
       if (playPromise !== undefined) {
-        playPromise.then(() => {
-          setIsPlaying(true);
-        }).catch(error => {
+        playPromise.catch(error => {
           console.log("Autoplay prevented or video failed to load:", error);
-          setIsPlaying(false);
         });
       }
     }
   }, []);
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (videoRef.current.paused) {
-        videoRef.current.play().catch(e => console.error("Play failed:", e));
-      } else {
-        videoRef.current.pause();
-      }
-    }
-  };
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-      setIsMuted(videoRef.current.muted);
-    }
-  };
 
   return (
     <section
@@ -50,16 +26,16 @@ const Section1UI = () => {
       {/* Background Video */}
       <video
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover grayscale-[30%] contrast-[1.1] brightness-90 z-0"
+        className="absolute inset-0 w-full h-full object-cover grayscale-[30%] contrast-[1.1] brightness-90 z-0 pointer-events-none select-none"
         poster="/gallery/SnapInsta.to_672310439_18078221936284851_8366033340647186944_n.jpg"
         autoPlay
         loop
         playsInline
         muted
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
+        disablePictureInPicture
+        controlsList="nodownload nofullscreen noremoteplayback"
+        onContextMenu={(e) => e.preventDefault()}
       >
-        {/* We use a source tag to ensure proper MIME type resolution */}
         <source src="/resturant.mp4" type="video/mp4" />
         <source src="/video/resturant.mp4" type="video/mp4" />
         <source src="/restaurant.mp4" type="video/mp4" />
@@ -80,31 +56,6 @@ const Section1UI = () => {
       <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-charcoal to-transparent pointer-events-none z-[2]"></div>
 
 
-      {/* Video Controls (Positioned high up) */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.2 }}
-        className="absolute top-8 right-8 z-30 flex flex-col gap-2"
-      >
-        <div className="flex gap-4">
-          <button
-            onClick={togglePlay}
-            className="w-12 h-12 rounded-full border border-ivory/30 bg-charcoal/40 backdrop-blur-md flex items-center justify-center text-ivory hover:bg-ivory hover:text-charcoal transition-all duration-300 cursor-pointer"
-            aria-label={isPlaying ? "Pause Video" : "Play Video"}
-          >
-            {isPlaying ? <Pause size={20} className="fill-current" /> : <Play size={20} className="fill-current translate-x-[1px]" />}
-          </button>
-          <button
-            onClick={toggleMute}
-            className="w-12 h-12 rounded-full border border-ivory/30 bg-charcoal/40 backdrop-blur-md flex items-center justify-center text-ivory hover:bg-ivory hover:text-charcoal transition-all duration-300 cursor-pointer"
-            aria-label={isMuted ? "Unmute Video" : "Mute Video"}
-          >
-            {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
-          </button>
-        </div>
-      </motion.div>
-
       {/* Logo & Content */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -121,7 +72,6 @@ const Section1UI = () => {
           src="/logo_tree_only.png"
           alt="Bagh Baan Logo"
           className="w-40 sm:w-48 md:w-56 h-auto object-contain mb-8 mx-auto drop-shadow-2xl"
-          // Removed the forced CSS filters so the newly provided logo's natural colors show
         />
 
         <motion.span
