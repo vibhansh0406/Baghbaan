@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Section1UI from './sections/Section1/Section1UI';
-import VideoSectionUI from './sections/VideoSection/VideoSectionUI';
 import Section2UI from './sections/Section2/Section2UI';
 import Section3UI from './sections/Section3/Section3UI';
 import Section4UI from './sections/Section4/Section4UI';
@@ -19,7 +18,6 @@ function App() {
         rather than a literal 3D fly-through.
       */}
       <Section1UI />
-      <VideoSectionUI />
       <Section2UI />
       <Section3UI />
       <Section4UI />

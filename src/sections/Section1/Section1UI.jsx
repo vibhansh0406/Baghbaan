@@ -1,28 +1,94 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
 const Section1UI = () => {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
+  // Attempt to autoplay muted on mount
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(e => console.log("Autoplay prevented:", e));
+    }
+  }, []);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
   return (
     <section
-      className="min-h-[100svh] md:h-screen w-full flex flex-col justify-center items-center relative bg-charcoal sticky top-0 -z-10 bg-cover-center"
-      style={{ backgroundImage: `url('/gallery/SnapInsta.to_673880830_18078221945284851_2043286918831100065_n.jpg')` }}
+      className="min-h-[100svh] md:h-screen w-full flex flex-col justify-center items-center relative bg-charcoal sticky top-0 -z-10 bg-cover-center overflow-hidden"
     >
+
+      {/* Background Video */}
+      <video
+        ref={videoRef}
+        className="absolute inset-0 w-full h-full object-cover grayscale-[30%] contrast-[1.1] brightness-90 z-0"
+        src="/video/restaurant.mp4"
+        loop
+        playsInline
+        muted={isMuted}
+      />
 
       {/*
         Deep cinematic overlay to keep the moody premium feel
-        while showing the gorgeous restaurant photography underneath.
+        while showing the gorgeous restaurant video underneath.
       */}
-      <div className="absolute inset-0 bg-charcoal/85 backdrop-blur-[2px]"></div>
+      <div className="absolute inset-0 bg-charcoal/60 backdrop-blur-[2px] z-[1]"></div>
+
+      {/* Vintage Effect Overlays */}
+      <div className="absolute inset-0 bg-[#3b2d1d] mix-blend-color z-[2] opacity-40 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-noise opacity-20 mix-blend-overlay z-[2] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
 
       {/* Vignette bridging to the bright Ivory section below */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-sage-dark/20 to-transparent pointer-events-none"></div>
-      <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-charcoal to-transparent pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-sage-dark/20 to-transparent pointer-events-none z-[2]"></div>
+      <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-charcoal to-transparent pointer-events-none z-[2]"></div>
 
+
+      {/* Video Controls (Positioned high up) */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.2 }}
+        className="absolute top-8 right-8 z-30 flex gap-4"
+      >
+        <button
+          onClick={togglePlay}
+          className="w-12 h-12 rounded-full border border-ivory/30 bg-charcoal/40 backdrop-blur-md flex items-center justify-center text-ivory hover:bg-ivory hover:text-charcoal transition-all duration-300"
+        >
+          {isPlaying ? <Pause size={20} className="fill-current" /> : <Play size={20} className="fill-current translate-x-[1px]" />}
+        </button>
+        <button
+          onClick={toggleMute}
+          className="w-12 h-12 rounded-full border border-ivory/30 bg-charcoal/40 backdrop-blur-md flex items-center justify-center text-ivory hover:bg-ivory hover:text-charcoal transition-all duration-300"
+        >
+          {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+        </button>
+      </motion.div>
+
+      {/* Logo & Content */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="text-center px-6 z-20 relative w-full max-w-4xl flex flex-col items-center justify-center pt-10 pb-32"
+        className="text-center px-6 z-20 relative w-full max-w-4xl flex flex-col items-center justify-center pt-10 pb-32 pointer-events-none"
       >
 
         {/* Strictly the Tree Logo, purely centered, tinted to sage so it matches brand without being a flat background */}
