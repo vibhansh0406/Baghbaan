@@ -41,7 +41,9 @@ const Section1UI = () => {
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover grayscale-[30%] contrast-[1.1] brightness-90 z-0"
-        src="/video/restaurant.mp4"
+        src="/restaurant.mp4"
+        poster="/gallery/SnapInsta.to_672310439_18078221936284851_8366033340647186944_n.jpg"
+        autoPlay
         loop
         playsInline
         muted={isMuted}
