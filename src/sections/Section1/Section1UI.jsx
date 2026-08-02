@@ -69,9 +69,9 @@ const Section1UI = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5, delay: 0.2 }}
-          src="/logo_tree_only.png"
+          src="/logo_full.png"
           alt="Bagh Baan Logo"
-          className="w-40 sm:w-48 md:w-56 h-auto object-contain mb-8 mx-auto drop-shadow-2xl"
+          className="w-56 sm:w-72 md:w-96 h-auto object-contain mb-8 mx-auto drop-shadow-2xl"
         />
 
         <motion.span
