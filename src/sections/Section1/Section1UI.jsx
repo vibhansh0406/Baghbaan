@@ -11,9 +11,7 @@ const Section1UI = () => {
 
       const playPromise = videoRef.current.play();
       if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.log("Autoplay prevented or video failed to load:", error);
-        });
+        playPromise.catch(() => {});
       }
     }
   }, []);
